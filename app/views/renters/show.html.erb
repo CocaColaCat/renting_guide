@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Postcode:</b>
+  <%= @renter.postcode %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @renter.email %>
+</p>
+
+
+<%= link_to 'Edit', edit_renter_path(@renter) %> |
+<%= link_to 'Back', renters_path %>

@@ -1,0 +1,25 @@
+<h1>Listing renters</h1>
+
+<table>
+  <tr>
+    <th>Postcode</th>
+    <th>Email</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @renters.each do |renter| %>
+  <tr>
+    <td><%= renter.postcode %></td>
+    <td><%= renter.email %></td>
+    <td><%= link_to 'Show', renter %></td>
+    <td><%= link_to 'Edit', edit_renter_path(renter) %></td>
+    <td><%= link_to 'Destroy', renter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Renter', new_renter_path %>
