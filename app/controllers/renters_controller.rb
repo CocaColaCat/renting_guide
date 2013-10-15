@@ -1,6 +1,4 @@
 class RentersController < ApplicationController
-  # GET /renters
-  # GET /renters.json
   def index
     @renters = Renter.all
 
@@ -10,8 +8,6 @@ class RentersController < ApplicationController
     end
   end
 
-  # GET /renters/1
-  # GET /renters/1.json
   def show
     @renter = Renter.find(params[:id])
 
@@ -21,8 +17,6 @@ class RentersController < ApplicationController
     end
   end
 
-  # GET /renters/new
-  # GET /renters/new.json
   def new
     @renter = Renter.new
 
@@ -32,22 +26,21 @@ class RentersController < ApplicationController
     end
   end
 
-  # GET /renters/1/edit
   def edit
     @renter = Renter.find(params[:id])
   end
 
-  # POST /renters
-  # POST /renters.json
   def create
     @renter = Renter.new(params[:renter])
 
     respond_to do |format|
       if @renter.save
 	DownloadNotifier.downloaded(@renter).deliver
-        format.html { redirect_to @renter, notice: 'Renter was successfully created.' }
+        format.js 
+	format.html { redirect_to @renter, notice: 'Renter was successfully created.' }
         format.json { render json: @renter, status: :created, location: @renter }
       else
+	format.js {@render} 
         format.html { render action: "new" }
         format.json { render json: @renter.errors, status: :unprocessable_entity }
       end

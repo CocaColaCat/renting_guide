@@ -1,0 +1,6 @@
+<% if @renter.errors.any? %>
+  $('#failed').html("<%=j render "form" %>");
+<% else %>
+  $('#failed').html("");
+  $('#success').html("Thank you!");
+<% end %>
