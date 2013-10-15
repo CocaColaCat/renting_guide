@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  postcode: MyString
-  email: MyString
+  postcode: SG1 3QF
+  email: to@example.org
 
 two:
-  postcode: MyString
-  email: MyString
+  postcode: W6 OXE
+  email: b@gmail.com

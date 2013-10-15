@@ -44,6 +44,7 @@ class RentersController < ApplicationController
 
     respond_to do |format|
       if @renter.save
+	DownloadNotifier.downloaded(@renter).deliver
         format.html { redirect_to @renter, notice: 'Renter was successfully created.' }
         format.json { render json: @renter, status: :created, location: @renter }
       else
