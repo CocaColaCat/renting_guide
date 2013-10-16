@@ -12,5 +12,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem "going_postal", "~> 0.1.3"
+gem 'going_postal', '~> 0.1.3'
+gem 'rest-client', '1.6.7'
+gem 'haversine', '0.3.0'
 

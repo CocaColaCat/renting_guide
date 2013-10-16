@@ -13,3 +13,4 @@ class Renter < ActiveRecord::Base
 
   validates :postcode,  :presence => true, :postcode => true
 end
+
