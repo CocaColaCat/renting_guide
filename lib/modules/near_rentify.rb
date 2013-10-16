@@ -8,6 +8,10 @@ module NearRentify
     lat = geo_info['geo']['lat'].to_f
     lng = geo_info['geo']['lng'].to_f
     distance = Haversine.distance(LAT_FOR_RENTIFY, LNG_FOR_RENTIFY, lat, lng).to_mi
-    distance < 5.0
-  end 
+    distance <= 5.0
+  end
+
+  def remove_spaces(s)
+    s.gsub(/\s+/, "")
+  end
 end

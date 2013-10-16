@@ -1,5 +1,8 @@
 <% if @renter.errors.any? %>
   $('#failed').html("<%=j render "form" %>");
+<% elsif @within_5_miles %>
+  $('#failed').html("");
+  $('#success').html("Thank you! Rentify is closed to you.");
 <% else %>
   $('#failed').html("");
   $('#success').html("Thank you!");

@@ -1,4 +1,6 @@
 class RentersController < ApplicationController
+  include NearRentify
+
   def index
     @renters = Renter.all
 
@@ -32,9 +34,12 @@ class RentersController < ApplicationController
 
   def create
     @renter = Renter.new(params[:renter])
-
+      
     respond_to do |format|
       if @renter.save
+	if(is_within_5_miles(remove_spaces(@renter[:postcode])))
+	  @within_5_miles = true
+	end
 	DownloadNotifier.downloaded(@renter).deliver
         format.js 
 	format.html { redirect_to @renter, notice: 'Renter was successfully created.' }
