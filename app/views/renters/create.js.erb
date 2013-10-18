@@ -1,4 +1,5 @@
 <% if @renter.errors.any? %>
+  $(".alert").alert()
   $('#failed').html("<%=j render "form" %>");
 <% elsif @within_5_miles %>
   $('#failed').html("");
