@@ -13,3 +13,5 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+app/assets/stylesheets/.DS_Store
+app/views/renters/.DS_Store

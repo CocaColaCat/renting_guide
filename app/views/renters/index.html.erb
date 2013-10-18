@@ -1,25 +1,38 @@
-<h1>Listing renters</h1>
-
-<table>
-  <tr>
-    <th>Postcode</th>
-    <th>Email</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @renters.each do |renter| %>
-  <tr>
-    <td><%= renter.postcode %></td>
-    <td><%= renter.email %></td>
-    <td><%= link_to 'Show', renter %></td>
-    <td><%= link_to 'Edit', edit_renter_path(renter) %></td>
-    <td><%= link_to 'Destroy', renter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+<%- model_class = Renter -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:postcode) %></th>
+      <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @renters.each do |renter| %>
+      <tr>
+        <td><%= link_to renter.id, renter_path(renter) %></td>
+        <td><%= renter.postcode %></td>
+        <td><%= renter.email %></td>
+        <td><%=l renter.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_renter_path(renter), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      renter_path(renter),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Renter', new_renter_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_renter_path,
+            :class => 'btn btn-primary' %>

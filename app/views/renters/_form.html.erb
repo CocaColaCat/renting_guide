@@ -1,8 +1,8 @@
-<%= form_for @renter,remote: true do |f| %>
+<%= form_for @renter,remote: true, :html => {:class => 'form-horizontal'}  do |f| %>
+  
   <% if @renter.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@renter.errors.count, "error") %> prohibited this renter from being saved:</h2>
-
+      <p><%= pluralize(@renter.errors.count, "error") %> prohibited this renter from being saved:</p>
       <ul>
       <% @renter.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -11,15 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :postcode %><br />
-    <%= f.text_field :postcode %>
+  <div class="control-group">
+    <%= f.label :postcode, :class => 'control-label'%>
+    <div class="controls">
+    	<%= f.text_field :postcode, :class => 'text_field', :placeholder=>"Postcode"%>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+  
+   <div class="control-group">
+    <%= f.label :email, :class => 'control-label' %>
+    <div class="controls">
+    	<%= f.text_field :email, :class => 'text_field', :placeholder=>"Email" %>
+    </div>
+  </div> 
+  
+   <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  
 <% end %>
