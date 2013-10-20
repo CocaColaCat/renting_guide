@@ -1,10 +1,17 @@
 <% if @renter.errors.any? %>
-  $(".alert").alert()
+  $(".alert").alert();
   $('#failed').html("<%=j render "form" %>");
 <% elsif @within_5_miles %>
   $('#failed').html("");
   $('#success').html("Thank you! Rentify is closed to you.");
+  ajaxRequest();
 <% else %>
+  ajaxRequest();
   $('#failed').html("");
   $('#success').html("Thank you!");
 <% end %>
+
+function ajaxRequest(){
+	var url='http://0.0.0.0:3000/download';
+    var _iframe_dl = $('<iframe />').attr('src', url).hide().appendTo('body'); 
+}

@@ -37,15 +37,16 @@ class RentersController < ApplicationController
       
     respond_to do |format|
       if @renter.save
-	if(is_within_5_miles(remove_spaces(@renter[:postcode])))
-	  @within_5_miles = true
-	end
-	DownloadNotifier.downloaded(@renter).deliver
-        format.js 
-	format.html { redirect_to @renter, notice: 'Renter was successfully created.' }
-        format.json { render json: @renter, status: :created, location: @renter }
+		  if(is_within_5_miles(remove_spaces(@renter[:postcode])))
+			  @within_5_miles = true
+		   end
+		   
+		   DownloadNotifier.downloaded(@renter).deliver
+		   format.js 
+		   format.html { redirect_to @renter, notice: 'Renter was successfully created.' }
+		   format.json { render json: @renter, status: :created, location: @renter }
       else
-	format.js {@render} 
+	  	   format.js {@render} 
         format.html { render action: "new" }
         format.json { render json: @renter.errors, status: :unprocessable_entity }
       end
@@ -78,5 +79,10 @@ class RentersController < ApplicationController
       format.html { redirect_to renters_url }
       format.json { head :no_content }
     end
+  end
+  
+  def download
+  	file_path = Rails.root + "public/Ultimate_Renting_Guide.pdf"
+  	send_file file_path, filename: "Ultimate_Renting_Guide.pdf", disposition: "attachment"
   end
 end
