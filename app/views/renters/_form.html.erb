@@ -1,7 +1,7 @@
-<%= form_for @renter,remote: true, :html => {:class => 'form-horizontal'}  do |f| %>
+<%= form_for @renter,remote: true do |f| %>
 
   <% if @renter.errors.any? %>
-    <div id="error_explanation" class="alert alert-error control-group">
+    <div id="error_explanation" class="alert alert-error">
       <a class="close" data-dismiss="alert" href="#">&times;</a>
       <p><%= pluralize(@renter.errors.count, "error") %> prohibited this renter from being saved:</p>
       <ul>
@@ -11,30 +11,8 @@
       </ul>
     </div>
   <% end %>
-  
-  <div class="control-group">
-    <%= f.label :postcode, :class => 'control-label'%>
-    <div class="controls">
-    	<div class="input-prepend">
-    		<span class="add-on"><i class="icon-home"></i></span>
-			<%= f.text_field :postcode, :class => 'text_field ', :id=>"inputIcon"%>
-			
-    	</div>
-    </div>
-  </div>
-  
-   <div class="control-group">
-    <%= f.label :email, :class => 'control-label', :for=>"inputIcon" %>
-    <div class="controls">
-        <div class="input-prepend">
-			<span class="add-on"><i class="icon-envelope"></i></span>
-			<%= f.text_field :email, :class => 'text_field', :id=>"inputIcon"%>
-        </div>
-    </div>
-  </div> 
-  
-   <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-success span2 ' %>
-  </div>
-  
+  <%= f.text_field :postcode, :id=>"inputIcon", :placeholder=>"Postcode"%>
+  <%= f.text_field :email, :id=>"inputIcon", :placeholder=>"Email"%>
+  <%= f.submit "Download Your Guide", :class => 'btn download' %>
+
 <% end %>

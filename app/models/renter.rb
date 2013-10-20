@@ -3,15 +3,15 @@ class Renter < ActiveRecord::Base
   include GoingPostal
  
   attr_accessible :email, :postcode
-  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, :message => 'seems not right.'
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, :message => 'Please provide a valid email address.'
 
   class PostcodeValidator < ActiveModel::EachValidator
     def validate_each(record, attribute, value)
-      record.errors.add attribute, (options[:message] || "is not an postcode") unless
+      record.errors.add attribute, (options[:message] || "Please provide a valid UK postcode.") unless
       GoingPostal.postcode?(value, "GB")
     end
   end
 
-  validates :postcode,  :presence => true, :postcode => true
+  validates :postcode, :postcode => true
 end
 

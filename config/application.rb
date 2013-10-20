@@ -22,3 +22,4 @@ module RentingGuild
     config.autoload_paths += %W(#{config.root}/lib/modules)
   end
 end
+

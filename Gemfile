@@ -19,3 +19,5 @@ gem 'rest-client', '1.6.7'
 gem 'haversine', '0.3.0'
 
 gem "therubyracer"
+
+gem 'bootstrap_form'
