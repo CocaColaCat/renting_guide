@@ -1,16 +1,5 @@
-<%= form_for @renter,remote: true do |f| %>
+<%= form_for @renter, :remote => true, :validate => true do |f| %>
 
-  <% if @renter.errors.any? %>
-    <div id="error_explanation" class="alert alert-error">
-      <a class="close" data-dismiss="alert" href="#">&times;</a>
-      <p><%= pluralize(@renter.errors.count, "error") %> prohibited this renter from being saved:</p>
-      <ul>
-      <% @renter.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
   <%= f.text_field :postcode, :id=>"inputIcon", :placeholder=>"Postcode"%>
   <%= f.text_field :email, :id=>"inputIcon", :placeholder=>"Email"%>
   <%= f.submit "Download Your Guide", :class => 'btn download' %>

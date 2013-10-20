@@ -20,4 +20,4 @@ gem 'haversine', '0.3.0'
 
 gem "therubyracer"
 
-gem 'bootstrap_form'
+gem 'client_side_validations'
