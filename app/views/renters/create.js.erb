@@ -2,16 +2,16 @@
   $(".alert").alert();
   $('#failed').html("<%=j render "form" %>");
 <% elsif @within_5_miles %>
-  $('#failed').html("");
-  $('#success').html("Thank you! Rentify is closed to you.");
-  ajaxRequest();
+  $('#failed').fadeOut("slow");
+  $('#success_within_5_miles').html("Thank you! Rentify is closed to you.");
+  download_guide();
 <% else %>
-  ajaxRequest();
-  $('#failed').html("");
-  $('#success').html("Thank you!");
+  download_guide();
+  $('#failed').hide();
+  $('#success').fadeIn('slow');
 <% end %>
 
-function ajaxRequest(){
+function download_guide(){
 	var url='http://0.0.0.0:3000/download';
     var _iframe_dl = $('<iframe />').attr('src', url).hide().appendTo('body'); 
 }

@@ -29,16 +29,17 @@
 // Example:
 // @linkColor: #ff0000;
 
+
 .carousel-caption {
-	left: 150px;
-	right: 150px;
-	bottom: 150px;
-	padding: 30px;   
+        left: 150px;
+        right: 150px;
+        bottom: 150px;
+        padding: 30px;   
 }
 
 input[type=text]{
-    height: 60px !important;
-    font-size: 20px !important;
+    height: 60px ;
+    font-size: 20px;
     width: 340px;
     margin-top: 20px;
     display: block;
@@ -49,10 +50,11 @@ input[type=text]{
 .modal {
 	width: 450px;
 	background-color: @grayLighter;
+	//border-color: red;
 }
 
 input[type="submit"]{
-	height: 60px !important;
+	height: 60px;
     margin-top: 20px;
 	margin-left: 30px;
 	display: block;
@@ -85,6 +87,24 @@ input:-moz-placeholder, textarea:-moz-placeholder {
 	.box-shadow(~"inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(255,0,0,.3)");		
 }
 
+.success{
+	height: 280px;
+	background-color: @grayLighter;
+	margin-bottom: 20px;
+	margin-top: 10px;
+	display: none;
+	
+  //border: 1px solid #999;
+  	img{
+		margin-left: 115px;
+		height: 180px;
+		.box-shadow(~"inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(26, 222, 128, 0.6)");	
+	}
+	p{
+		margin-top: 30px;
+		text-align:center;
+	}
+}
 
 
 

@@ -1,9 +1,18 @@
 <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-<%- model_class = Renter -%>
-
+ 
 <div id="failed" class="modal-body">
-  <%= render 'form' %>
+
+    <%= render 'form' %>
 </div>
-<div id="success"></div>
+
+<div id="success" class="modal-body success">
+
+ <%= image_tag "success_kid.jpg", :class => "img-circle"%>
+ <p class="lead">You just downloaded the Ultimate Renting Guide successfully.</p>
+ </div>
+
+<div id="success_within_5_miles">
+	
+</div>
 </div>
 
