@@ -1,9 +1,7 @@
 class DownloadNotifier < ActionMailer::Base
-  default from: "from@example.com"
+  default from: ""
   
   def downloaded(renter)
-    @greeting = "Hi"
-
     mail to: renter.email, subject: 'Download confirmation'
   end
 end

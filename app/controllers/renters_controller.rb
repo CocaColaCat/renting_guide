@@ -40,9 +40,8 @@ class RentersController < ApplicationController
       
 		  if(is_within_5_miles(@renter[:postcode]))
 			  @within_5_miles = true
-			  coordinates = get_coordinates(@renter[:postcode])
-			 
-			  @link_to_map = "<img src=\"#{create_link(coordinates)}\" class=\"img-circle\">"
+			  #coordinates = get_coordinates(@renter[:postcode])
+			  #@link_to_map = "<img src=\"#{create_link(coordinates)}\" class=\"img-circle\">"
 		   end
 		   
 		   DownloadNotifier.downloaded(@renter).deliver	   
