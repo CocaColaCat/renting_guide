@@ -10,30 +10,36 @@
   <%= javascript_include_tag :defaults, "rails.validations" %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 <body>
-
           <div id="carousel" class="carousel slide">
-         
+			  		
+			  		<div class="carousel-caption rentify_logo">
+			  			<%= image_tag "rentify.png"%>
+			  		</div>
+			  		
                    <div class="carousel-caption">
-              <h3>Hello</h3>
-              <p>Ut tincidunt tortor. Donec nonummy, enim in laciniavelit tellus scelerisque augue, 
-                                                        ac posuere libero urna eget neque. Cras ipsum. Vestibulum pretium, lectus nec venenatis volutpat, 
-                                                        purus lectus ultrices risus, a condimentum risus mi et quam. Pellentesque auctor fringilla neque. 
-                                                        Duis eu massa ut lorem iaculis vestibulum. Maecenas facilisis elit sed justo. Quisque volutpat 
-                                                        malesuada velit.
-                          </p>                                                                    
-                          <a href="#myModal" role="button" class="btn" data-toggle="modal">Download Guide</a>      
-         </div>
+					   <h3>The Ultimate Renting Guide</h3>
+					   <p>  Ut tincidunt tortor. Donec nonummy</p>
+					   <p>  Enim in laciniavelit tellus scelerisque augue, 
+                          ac posuere libero urna eget neque. Cras ipsum. Vestibulum pretium, lectus nec venenatis volutpat, 
+                          purus lectus ultrices risus, a condimentum risus mi et quam. Pellentesque auctor fringilla neque. 
+						  Duis eu massa ut lorem iaculis vestibulum. Maecenas 
+					   </p>
+					   <p>  Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida 
+					   	at eget.</p>                                                                    
+                       <a href="#myModal" role="button" class="btn" data-toggle="modal"><div class="sign_up">Sign Up</div></a>      
+					</div>
          
-                <div class="carousel-inner">                
+					<div class="carousel-inner">                
                         <div class="active item">
-                                <%= image_tag "cozy_home_1.jpg"  %>
+                                <%= image_tag "cozy_room_1.jpg"  %>
                         </div>                        
                         <div class="item">
-                                <%= image_tag "cozy_home_2.jpg"  %>
+                                <%= image_tag "cozy_room_2.jpg"  %>
                         </div>                        
-                </div>                
+					</div>                
                 <a class="carousel-control left" href="#carousel" data-slide="prev">&lsaquo;</a>
                 <a class="carousel-control right" href="#carousel" data-slide="next">&rsaquo;</a> 
         </div>        

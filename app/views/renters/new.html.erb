@@ -1,18 +1,19 @@
 <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
  
-<div id="failed" class="modal-body">
+	<div id="failed" class="modal-body">
+    	<%= render 'form' %>
+	</div>
 
-    <%= render 'form' %>
-</div>
+	<div id="success" class="modal-body success">
+		<%= image_tag "success_kid.jpg", :class => "img-circle"%>
+		<p class="lead">You just successfully downloaded the Ultimate Renting Guide.</p>
+	</div>
 
-<div id="success" class="modal-body success">
+	<div id="success_within_5_miles" class="modal-body success_within_5_miles">
+		<img id="map_to_rentify" src="" class="img-circle">
+		<p class="lead">The Guide is on its way and you are very close to our base.</p>
+	</div>
 
- <%= image_tag "success_kid.jpg", :class => "img-circle"%>
- <p class="lead">You just downloaded the Ultimate Renting Guide successfully.</p>
- </div>
 
-<div id="success_within_5_miles">
-	
-</div>
 </div>
 

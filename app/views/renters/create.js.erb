@@ -2,9 +2,10 @@
   $(".alert").alert();
   $('#failed').html("<%=j render "form" %>");
 <% elsif @within_5_miles %>
-  $('#failed').fadeOut("slow");
-  $('#success_within_5_miles').html("Thank you! Rentify is closed to you.");
   download_guide();
+  $('#failed').hide(); 
+  $('#map_to_rentify').attr('src', 'http://maps.googleapis.com/maps/api/staticmap?zoom=15&size=300x300&maptype=roadmap&markers=color:orange%7Clabel:R%7C51.526417,-0.078261&sensor=false');
+  $('#success_within_5_miles').fadeIn('slow');
 <% else %>
   download_guide();
   $('#failed').hide();

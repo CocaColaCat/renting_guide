@@ -37,11 +37,15 @@ class RentersController < ApplicationController
       
     respond_to do |format|
       if @renter.save
-		  if(is_within_5_miles(remove_spaces(@renter[:postcode])))
+      
+		  if(is_within_5_miles(@renter[:postcode]))
 			  @within_5_miles = true
+			  coordinates = get_coordinates(@renter[:postcode])
+			 
+			  @link_to_map = "<img src=\"#{create_link(coordinates)}\" class=\"img-circle\">"
 		   end
 		   
-		   DownloadNotifier.downloaded(@renter).deliver
+		   DownloadNotifier.downloaded(@renter).deliver	   
 		   format.js 
 		   format.html { redirect_to @renter, notice: 'Renter was successfully created.' }
 		   format.json { render json: @renter, status: :created, location: @renter }
