@@ -15,7 +15,7 @@ module RentingGuild
     config.active_support.escape_html_entities_in_json = true
 
     config.active_record.whitelist_attributes = true
-
+    config.assets.initialize_on_precompile = false
     config.assets.enabled = true
 
     config.assets.version = '1.0'
